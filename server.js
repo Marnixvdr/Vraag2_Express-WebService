@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
-var checker;
 
 
 var db;
@@ -21,24 +20,26 @@ MongoClient.connect('mongodb://user:mongodb123@ds013599.mlab.com:13599/examen', 
 app.get('/', (req, res) => {
 	var cursor =  db.collection('inhaal').find().toArray((err, result) => {
     if (err) return console.log(err)
-    res.render('index.ejs', {quotes: result})
+    res.render('index.ejs', {inhaal: result})
 })
 }) ;
     
 app.post('/inhaal', (req, res) => {
-
- // if(db.collection('inhaal').getItem(req) = req)
- // {
- //  console.log('Deze aanvraag is al in verwerking.');
- // }
- // else
- // {
+  if(true) // ik kon niet op de juiste methode komen voor het zoeken van een object in de collectie, collection.find werkte niet. 
+  {
+  console.log('Deze aanvraag is al in verwerking.' );
+  res.redirect('/');
+  
+  
+  }
+  else
+  {
     db.collection('inhaal').insertOne(req.body, (err, result) => {
-              if (err) return console.log(err)
-                    console.log('Verzoek opgeslagen')
-                          res.redirect('/')
-                            }) 
- // }
+    if (err) return console.log(err)
+    console.log('Verzoek opgeslagen')
+    res.redirect('/')
+    }) 
+  }
 
 });
  
