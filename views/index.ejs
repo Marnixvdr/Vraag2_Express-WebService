@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Opdracht "InhaalexamenPlanner"</title>
+</head>
+<body>
+        <p>
+        <script> 
+        document.write(new Date().toLocaleDateString()); 
+        document.write(" ");
+        document.write(new Date().toLocaleTimeString());        
+        </script>
+        </p>
+    
+        <form action="/herexamens" method="POST">
+          <input type="text" placeholder="naam student" name="naam student">
+          <input type="text" placeholder="examen" name="examen">
+          <input type="text" placeholder="reden" name="reden">
+          
+          <button type="Verstuur">Verstuur</button>
+        </form>
+        <br>
+         Hier kan je een inhaalexamen aanvragen.
+</body>
+</html>
